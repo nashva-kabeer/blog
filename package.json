@@ -1,0 +1,16 @@
+{
+  "name": "my_blog",
+  "version": "1.0.0",
+  "description": "Blog which contains different useful articles",
+  "main": "Blog.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fathima Nashva",
+  "license": "ISC"
+}
