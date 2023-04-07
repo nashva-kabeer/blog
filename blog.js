@@ -9,6 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine','pug');
 app.set('views','./view');
 
+app.use(express.static('blog/css'));
+app.use(express.static('blog/js'));
+
 var signup = require('./signin.js')
 
 app.use('/',signup);
