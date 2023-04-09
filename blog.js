@@ -11,6 +11,7 @@ app.set('views','./view');
 
 app.use(express.static('blog/css'));
 app.use(express.static('blog/js'));
+app.use(express.static('blog/images'));
 
 var signup = require('./signin.js')
 

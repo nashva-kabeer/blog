@@ -1,4 +1,4 @@
-function signupvalidate(){
+function login(){
     if(document.getElementById("name").value ==''){
         document.getElementById("error").innerHTML ='Enter Your Name';
         return false;

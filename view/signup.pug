@@ -4,23 +4,24 @@ html
         title Blog Signup
         link(rel="stylesheet", href="signup.css")
         script(src="/signupvalidation.js") 
-    body 
-        form(action="/" method="post" onsubmit="return signupvalidate()") 
-            div
-                label(for='name') Name:
-                input#name(type="text" name="name")  
-            br
-            div
-                label(for="mailid") E-Mail:
-                input#mailid(type="email" name="mailid" required placeholder="E-mail")
-            br  
-            div
-                label(for="ph") Phone:
-                input#ph(type="tel", name="ph" required placeholder="00-0000000000")
-            br
-            div
-                label(for="password") Password:
-                input#password(type="password" name="password" required placeholder="password") 
-            br
-            input(type='submit', value='Signup')
-            #error
+    body
+        .container 
+            form(action="" method="post" onsubmit="return signupvalidate()") 
+                div
+                    label(for='name') Name:
+                    input#name(type="text" name="name")  
+                br
+                div
+                    label(for="mailid") E-Mail:
+                    input#mailid(type="email" name="mailid"  placeholder="E-mail")
+                br  
+                div
+                    label(for="ph") Phone:
+                    input#ph(type="tel", name="ph"  placeholder="00-0000000000")
+                br
+                div
+                    label(for="password") Password:
+                    input#password(type="password" name="password"  placeholder="password") 
+                br
+                input(type='submit', value='Signup')
+                #error

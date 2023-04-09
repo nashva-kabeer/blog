@@ -2,17 +2,18 @@ doctype
 html 
     head 
         title Blog Login 
-        link(rel="stylesheet", href="login.css")
+        link(rel="stylesheet", href="signup.css")
         script(src="/loginvalidation.js") 
-    body 
-        form(action="/", method="post", onsubmit="return login()") 
-            div 
-                label(for="name") Username: 
-                input#name(type="text" name="name")
-            br
-            div 
-                label(for="password") Password: 
-                input#password(type="password" name="password")
-            br
-            input(type='submit', value='Signup')
-            #error
+    body
+        .container
+            form(action="", method="post", onsubmit="return login()") 
+                div 
+                    label(for="name") Username: 
+                    input#name(type="text" name="name")
+                br
+                div 
+                    label(for="password") Password: 
+                    input#password(type="password" name="password")
+                br
+                input(type='submit', value='Login')
+                #error

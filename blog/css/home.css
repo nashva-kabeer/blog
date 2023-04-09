@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+}
+.container{
+    position: sticky;
+    top: 0;
+}
+.navbar{
+    background-color: gray;
+    padding: 0;
+}
+.navbar-nav li {
+    padding: 0 10px;
+}
+.navbar-nav li a{
+    font-weight: 600;
+    color: white !important;
+    float: right;
+    text-align: left;
+}
+#home{
+    background-color: gray;
+    padding: 20%;
+}
