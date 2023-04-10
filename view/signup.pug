@@ -3,7 +3,6 @@ html
     head 
         title Blog Signup
         link(rel="stylesheet", href="signup.css")
-        script(src="/signupvalidation.js") 
     body
         .container 
             form(action="" method="post" onsubmit="return signupvalidate()") 
@@ -12,16 +11,16 @@ html
                     input#name(type="text" name="name")  
                 br
                 div
-                    label(for="mailid") E-Mail:
-                    input#mailid(type="email" name="mailid"  placeholder="E-mail")
+                    label(for="email") E-Mail:
+                    input#email(type="email" name="email"  placeholder="E-mail")
                 br  
                 div
-                    label(for="ph") Phone:
-                    input#ph(type="tel", name="ph"  placeholder="00-0000000000")
+                    label(for="phone") Phone:
+                    input#phone(type="tel", name="phone"  placeholder="00-0000000000")
                 br
                 div
                     label(for="password") Password:
                     input#password(type="password" name="password"  placeholder="password") 
                 br
                 input(type='submit', value='Signup')
-                #error
+                h3 #{message}
