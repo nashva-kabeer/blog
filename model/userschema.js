@@ -6,7 +6,7 @@ var userSchema = mongoose.Schema({
     email: String,
     phone: String,
     password: String,
-    createdAt: Date,
+    createdAt: {type: Date, default: Date.now},
     approved: Number
 });
 

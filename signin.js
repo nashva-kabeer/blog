@@ -7,10 +7,13 @@ var User = require('./model/userschema.js');
 
 var data = [];
 
+//homepage
 router.get('/',(req,res) => {
     res.render('home');
 });
 
+
+//registration
 router.get('/signup',(req,res) => {
     res.render('signup');
 });
@@ -29,7 +32,6 @@ router.post('/signup',(req,res) => {
                 }
             })
             if( !signeduser[0] ){
-                var createdAt = Date.now();
                 var newUser = new User({
                     name: userInfo.name,
                     email: userInfo.email,
@@ -40,8 +42,7 @@ router.post('/signup',(req,res) => {
                 })
                 //console.log(userInfo);
                 newUser.save().then(()=>{
-                    res.render('show',{
-                        message: "New user added", type: "success", user: userInfo});
+                    res.redirect('/dashboard');
                 }).catch((err)=>{
                     res.render('show', {message: "Database error" ,type: "error"});
                     console.log(err);
@@ -55,6 +56,8 @@ router.post('/signup',(req,res) => {
     }
 });
 
+
+//loginpage
 router.get('/login',(req,res) => {
     res.render('login');
 })
@@ -91,12 +94,14 @@ function checkSignIn(req,res,next){
     }
 }
 
+//User dashboard main
+
 router.get('/dashboard',checkSignIn,(req,res) => {
-    res.render('dashboard',{id: req.session.user.id});
+    res.render('userdbd',{name: req.session.user.name});
 });
 
 router.get('/dashboard',(req,res) => {
-    res.render("dashboard");
+    res.render("userdbd");
 });
 
 router.get('/logout',(req,res) => {
@@ -109,6 +114,6 @@ router.get('/logout',(req,res) => {
 router.use('/dashboard',(err,req,res,next) => {
     console.log(err);
     res.redirect('/');
-})
+});
 
 module.exports = router;

@@ -1,0 +1,28 @@
+doctype
+html 
+    head 
+        title Add Article 
+    body
+        h2 New Article 
+        form(action="", method="post")  
+            div
+                label(for='title') Title:
+                input#title(type="text" name="title")  
+            br
+            div
+                label(for='subject') Subject:
+                select#subject(name="subject")
+                    option(value="") Please select 
+                    each opt in data 
+                        option(value=`${opt._id}`) #{opt.subject}    
+            br
+            div
+                label(for='description') Description:
+                input#description(type="text" name="description")  
+            br
+            div
+                label(for='article') Article:
+                textarea#article(name="article", cols="30", rows="10")   
+            br
+            input(type="Submit", value="Add Article")
+            h6 #{message}
