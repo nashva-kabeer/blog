@@ -6,11 +6,16 @@ mongoose.connect("mongodb://127.0.0.1/blogdb")
 var User = require('./model/userschema');
 var Subject = require('./model/subjectschema');
 
+//admin dashboard main
+router.get('/',(req,res) => {
+
+})
+
 // admin dashboard manage people
 
 router.get('/manageuser',(req,res) => {
     User.find().sort({createdAt:-1}).then((response) => {
-        res.render('admindbd', {data: response});
+        res.render('adusermanage', {data: response});
         //console.log(response);
     }).catch(function(err){
         console.log(err);
@@ -36,7 +41,7 @@ router.post('/edit/:id', (req,res) => {
 
 router.get('/manageuser/edited',(req,res) => {
     User.find().sort({createdAt:-1}).then((response) => {
-        res.render('admindbd',{message: "Edited Successfully"});
+        res.render('adusermanage',{message: "Edited Successfully"});
     }).catch((err) => {
         console.log(err);
     })
@@ -53,7 +58,7 @@ router.get('/delete/:id',(req,res) => {
 
 router.get('/manageuser/deleted',(req,res) => {
     User.find().sort({createdAt:-1}).then((response) => {
-        res.render('admindbd',{message2: "Deleted Successfully"});
+        res.render('adusermanage',{message2: "Deleted Successfully"});
     }).catch((err) => {
         console.log(err);
     })
