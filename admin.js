@@ -62,10 +62,10 @@ router.get('/logout',(req,res) => {
     res.redirect('/admin');
 });
 
-/*router.use('/dashboard',(err,req,res,next) => {
+app.use('/home', function(err, req, res, next){
     console.log(err);
-    res.redirect('/admin');
-});*/
+    res.redirect('/admin/adminlogin');
+});
 
 
 

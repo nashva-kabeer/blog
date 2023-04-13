@@ -1,8 +1,35 @@
 doctype 
 html 
     head 
-        title Article Approval 
-    body 
+        title Article Approval
+        script(src="/articleapproval.js")  
+    body
+        h3 Articles 
         .container 
-            table(style='width':'75%',border='2')
-                th Article
+            table(style='width:100%',border='2')
+                tr
+                    th E-Mail
+                    th Topic 
+                    th Title 
+                    th Description 
+                    th Article 
+                    th Approval Status 
+                    th Approve 
+                    th Reject 
+                each value in data
+                    tr 
+                        td #{value.email}
+                        each topic in data1
+                            if(topic._id == value.subject)
+                                td #{topic.subject}
+                        td #{value.title} 
+                        td #{value.description} 
+                        td #{value.article} 
+                        td #{value.approved}
+                        td(onclick="approvearticle('"+value._id+"')") Approve 
+                        td(onclick="rejectarticle('"+value._id+"')") Reject
+            if(message == "success")
+                h3 Rejected
+            if(message1 == "success")
+                h3 Approved
+                    

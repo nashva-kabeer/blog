@@ -113,7 +113,7 @@ router.get('/logout',(req,res) => {
 
 router.use('/dashboard',(err,req,res,next) => {
     console.log(err);
-    res.redirect('/');
+    res.redirect('/login');
 });
 
 module.exports = router;
