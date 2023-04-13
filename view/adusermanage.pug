@@ -5,22 +5,30 @@ html
         link(rel="stylesheet", href="admindbd.css")
         script(src="/admindelete.js") 
     body 
+        h3 Users Manage
         table(style='width:100%',border='2')
             tr
                 th Name 
                 th E-Mail 
-                th Phone 
-                th Edit User
+                th Phone
+                th Status
+                th reject
+                th Approve 
                 th Delete User
             each user in data
                 tr
                     td #{user.name}
                     td #{user.email} 
-                    td #{user.phone}  
-                    td 
-                        a(href="/admin/edit/"+user._id) Edit User 
+                    td #{user.phone}
+                    td #{user.approved}
+                    td(onclick="rejectuser('"+user._id+"')") Reject User
+                    td(onclick="approveuser('"+user._id+"')") Approve User
                     td(onclick="userdelete('"+user._id+"')" class='del') Delete User
         if(message == "success")
              h3 edited successfully
         if(message2 == "success")
              h3 deleted successfully
+        if(message3 == "success")
+             h3 Rejected Approval
+        if(message4 == "success")
+             h3 Approved

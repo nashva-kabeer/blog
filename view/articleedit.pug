@@ -1,0 +1,27 @@
+doctype
+html 
+    head 
+        title Edit Article 
+    body
+        h2 Edit Article 
+        form(action="/article/update/"+data._id, method="post")  
+            div
+                label(for='title') Title:
+                input#title(type="text" name="title" value=data.title)  
+            br
+            div
+                label(for='subject') Topic:
+                select#subject(name="subject")
+                    option(value="") Please select 
+                    each opt in data1 
+                        option(value=`${opt._id}`) #{opt.subject}    
+            br
+            div
+                label(for='description') Description:
+                input#description(type="text" name="description" value=data.description)  
+            br
+            div
+                label(for='article') Article:
+                textarea#article(name="article", cols="30", rows="10") #{article}   
+            br
+            input(type="Submit", value="Edit Article")

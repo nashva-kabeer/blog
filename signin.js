@@ -70,7 +70,7 @@ router.post('/login',(req,res) => {
         User.find({}).then(function(response){
             datalogin = response;
             var logeduser = datalogin.filter(function(value){
-                if(value.email==userInfo.email && value.password==userInfo.password){
+                if(value.email==userInfo.email && value.password==userInfo.password && value.approved==1){
                     return true;
                 }
             })

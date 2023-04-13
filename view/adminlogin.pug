@@ -1,0 +1,17 @@
+doctype 
+html 
+    head 
+        title Admin Home 
+    body 
+        .container 
+            form(action="", method="post")
+                div 
+                    label(for="userid") Userid: 
+                    input#userid(type="text", name="userid")
+                br
+                div 
+                    label(for="password") Password: 
+                    input#password(type="password", name="password") 
+                br
+                input(type="submit", value="Login")
+                h3 #{message}

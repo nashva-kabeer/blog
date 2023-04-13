@@ -1,0 +1,29 @@
+doctype 
+html 
+    head 
+        title add topic manager 
+    body 
+        h3 Add New Topic Manager
+        .container
+            form(action="/admin/addtopicmanager", method="post")  
+                div 
+                    label(for="name") Name:
+                    input#name(type="text", name="name") 
+                br
+                div 
+                    label(for="userid") Userid:
+                    input#userid(type="text", name="userid") 
+                br
+                div 
+                    label(for="password") Password:
+                    input#password(type="text", name="password") 
+                br
+                div 
+                    label(for="subject") Topic:
+                    select#subject(name="subject")
+                        option(value="") Please Select 
+                        each opt in data1 
+                            option(value=`${opt._id}`) #{opt.subject}
+                br
+                input(type="submit", value="Add Topic manager")
+                h3 #{message}

@@ -23,9 +23,11 @@ app.use(express.static('blog/images'));
 var signup = require('./signin.js')
 var article = require('./articles.js')
 var admin = require('./admin.js')
+var topicmanager = require('./topicmanager.js')
 
 app.use('/',signup);
 app.use('/article',article);
 app.use('/admin',admin);
+app.use('/topicmanager',topicmanager);
 
 app.listen(8090);

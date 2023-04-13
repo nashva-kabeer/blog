@@ -1,26 +1,18 @@
 doctype 
 html 
     head 
-        title Admin Dashboard 
-        link(rel="stylesheet", href="admindbd.css")
-        script(src="/admindelete.js") 
-    body 
-        table(style='width:100%',border='2')
-            tr
-                th Name 
-                th E-Mail 
-                th Phone 
-                th Edit User
-                th Delete User
-            each user in data
-                tr
-                    td #{user.name}
-                    td #{user.email} 
-                    td #{user.phone}  
-                    td 
-                        a(href="/edit/"+user._id) Edit User 
-                    td(onclick="userdelete('"+user._id+"')" class='del') Delete User
-        if(message == "success")
-             h3 edited successfully
-        if(message2 == "success")
-             h3 deleted successfully
+        title admin dashboard 
+    body
+        div 
+            a(href="/admin/manageuser") Manage Users
+        br
+        div 
+            a(href="/admin/managetopic") Manage Topics 
+        br
+        div 
+            a(href="/admin/topicmanager") Manage Topic Managers
+        br
+        div 
+            a(href="/admin/logout") Logout
+        br    
+         

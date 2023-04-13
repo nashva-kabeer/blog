@@ -1,0 +1,35 @@
+doctype 
+html 
+    head 
+        title User Manage dashboard
+        script(src="/userdelete.js")  
+    body
+        h2 Your Articles
+        .add 
+            a(href="/article/addarticle") Add New Article
+        table(style='width:100%',border='2')
+            tr 
+                th E-Mail 
+                th Topic 
+                th Title 
+                th Description 
+                th Article 
+                th Update 
+                th Delete
+            each value in data 
+                tr 
+                    td #{email}
+                    each topic in data1 
+                        if(topic._id == value.subject)
+                            td #{topic.subject}
+                    td #{value.title} 
+                    td #{value.description} 
+                    td #{value.article}
+                    td 
+                        a(href="/article/update/"+value._id) Update Article 
+                    td(onclick="deletearticle('"+value._id+"')" class='del') Delete
+        if(message == "success")
+             h3 edited successfully
+        if(message2 == "success")
+             h3 deleted successfully
+                    

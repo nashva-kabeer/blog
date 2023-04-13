@@ -1,0 +1,23 @@
+doctype 
+html 
+    head 
+        title Admin Manage Topic
+        script(src="/topicdelete.js") 
+    body 
+        h3 
+            a(href="/admin/addtopic") Add Topic 
+        table(style="width:50%",border='1') 
+            tr 
+                th Topics 
+                th Edit 
+                th Delete 
+            each value in data 
+                tr 
+                    td #{value.subject}
+                    td 
+                        a(href="/admin/subjectedit/"+value._id) Edit Topic 
+                    td(onclick="topicdelete('"+value._id+"')") Delete 
+        if(message == "success")
+             h3 edited successfully
+        if(message2 == "success")
+             h3 deleted successfully

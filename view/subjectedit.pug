@@ -1,0 +1,12 @@
+doctype 
+html 
+    head 
+        title Edit Topics
+    body 
+        h3 Edit Topic
+        form(action="/admin/subjectedit/"+data._id, method="post")
+            div
+                label(for="subject") Topic:
+                input#subject(type="text", name="subject", value=data.subject)
+            br
+            input(type="submit", value="Edit Topic")

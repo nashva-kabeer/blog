@@ -1,0 +1,29 @@
+doctype 
+html 
+    head 
+        title edit topic manager 
+    body 
+        h3 Edit  Topic Manager
+        .container
+            form(action="/admin/editmanager/"+data._id, method="post") 
+                div 
+                    label(for="name") Name:
+                    input#name(type="text", name="name" ,value=data.name) 
+                br
+                div 
+                    label(for="userid") Userid:
+                    input#userid(type="text", name="userid", value=data.userid) 
+                br
+                div 
+                    label(for="password") Password:
+                    input#password(type="text", name="password", value=data.password) 
+                br
+                div 
+                    label(for="subject") Topic:
+                    select#subject(name="subject")
+                        option(value="") Please Select 
+                        each opt in data1 
+                            option(value=`${opt._id}`) #{opt.subject}  
+                br
+                input(type="submit", value="Edit Topic manager")
+                h3 #{message}

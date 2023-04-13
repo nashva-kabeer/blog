@@ -1,0 +1,13 @@
+doctype 
+html 
+    head 
+        title Add Topic
+    body 
+        h3 New Topic
+        form(action="/admin/addtopic", method="post")
+            div
+                label(for="subject") Topic:
+                input#subject(type="text", name="subject")
+            br
+            input(type="submit", value="Add Topic")
+            h3 #{message}

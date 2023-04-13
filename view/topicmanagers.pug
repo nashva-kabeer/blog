@@ -1,0 +1,31 @@
+doctype 
+html 
+    head 
+        title Manage Topic Managers
+        script(src="/managerdelete.js") 
+    body 
+        h2 Topic Managers
+        h3 
+            a(href="/admin/addtopicmanager") Add New Topic Manager 
+        .container 
+            table(style="width:75%",border='2') 
+                tr 
+                    th Name 
+                    th Userid
+                    th Topic 
+                    th Edit 
+                    th Delete 
+                each manager in data 
+                    tr 
+                        td #{manager.name} 
+                        td #{manager.userid}
+                        each topic in data1
+                            if(topic._id == manager.subject)
+                                td #{topic.subject} 
+                        td 
+                            a(href="/admin/editmanager/"+manager._id) Edit 
+                        td(onclick="deletemanager('"+manager._id+"')") Delete 
+            if(message == "success")
+                h3 edited successfully
+            if(message2 == "success")
+                h3 deleted successfully
