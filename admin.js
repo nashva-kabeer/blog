@@ -62,13 +62,6 @@ router.get('/logout',(req,res) => {
     res.redirect('/admin');
 });
 
-app.use('/home', function(err, req, res, next){
-    console.log(err);
-    res.redirect('/admin/adminlogin');
-});
-
-
-
 //admin manage topics
 router.get('/managetopic',checkSignInAdmin,(req,res) => {
     Subject.find({}).then((response) => {

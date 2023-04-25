@@ -28,8 +28,8 @@ router.post('/login',(req,res) => {
         res.render('tmlogin',{message: 'Please enter all details'})
     }else{
         Topicmanager.find({}).then((response) => {
-            data = response
-            var tmloged = data.filter((value) => {
+            datatm = response
+            var tmloged = datatm.filter((value) => {
                 if(value.userid == tmInfo.userid && value.password == tmInfo.password){
                     return true;
                 }
@@ -37,7 +37,7 @@ router.post('/login',(req,res) => {
             if(!tmloged[0]){
                 res.render('tmlogin',{message: "Invalid userid or Passwor! Please enter correctly"})
             }else{
-                //res.session.Topicmanager = tmloged[0];
+                req.session.topicmanager = tmloged[0];
                 res.redirect('/topicmanager/home')
             }
         })
@@ -55,13 +55,9 @@ router.get('/logout',(req,res) => {
     res.redirect('/topicmanager/login');
 });
 
-app.use('/home', function(err, req, res, next){
-    console.log(err);
-    res.redirect('/topicmanager/login');
-});
-
 router.get('/articleapproval',checkSignInTopicmanager,(req,res) => {
-    Article.find({}).then((response) => {
+    var topic = req.session.topicmanager.subject
+    Article.find({subject:topic}).sort({approved:1}).then((response) => {
         Subject.find({}).then((response1) => {
             res.render('tmapproval',{data: response,data1: response1})
         })
@@ -77,7 +73,8 @@ router.get('/rejectarticle/:id', (req,res) => {
 });
 
 router.get('/articlerejected',(req,res) => {
-    Article.find().sort({createdAt:-1}).then((response) => {
+    var topic = req.session.topicmanager.subject
+    Article.find({subject:topic}).sort({createdAt:-1}).then((response) => {
         Subject.find({}).then((response1) => {
             res.render('tmapproval',{data: response ,data1: response1,message: "success"});
         })
@@ -95,7 +92,8 @@ router.get('/approvearticle/:id', (req,res) => {
 });
 
 router.get('/articleapproved',(req,res) => {
-    Article.find().sort({createdAt:-1}).then((response) => {
+    var topic = req.session.topicmanager.subject
+    Article.find({subject:topic}).sort({createdAt:-1}).then((response) => {
         Subject.find({}).then((response1) => {
             res.render('tmapproval',{data: response ,data1: response1,message1: "success"});
         })

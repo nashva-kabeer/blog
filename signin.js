@@ -44,7 +44,6 @@ router.post('/signup',(req,res) => {
                 newUser.save().then(()=>{
                     res.redirect('/dashboard');
                 }).catch((err)=>{
-                    res.render('show', {message: "Database error" ,type: "error"});
                     console.log(err);
                 });
                 req.session.user = newUser;
@@ -56,8 +55,7 @@ router.post('/signup',(req,res) => {
     }
 });
 
-
-//loginpage
+// User loginpage
 router.get('/login',(req,res) => {
     res.render('login');
 })
@@ -108,11 +106,6 @@ router.get('/logout',(req,res) => {
     req.session.destroy(() => {
         console.log('user logged out');
     })
-    res.redirect('/');
-});
-
-router.use('/dashboard',(err,req,res,next) => {
-    console.log(err);
     res.redirect('/login');
 });
 

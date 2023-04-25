@@ -2,8 +2,14 @@ doctype
 html 
     head 
         title Blog Login 
-        link(rel="stylesheet", href="signup.css") 
+        link(rel="stylesheet", href="login.css") 
     body
+        div
+            a.login(href="/admin") Admin Login 
+        br
+        div
+            a.login(href="/topicmanager/login") Topic Manager Login  
+        br
         .container
             form(action="" method="post") 
                 div 
@@ -16,3 +22,8 @@ html
                 br
                 input(type='submit', value='Login')
                 h3 #{message}
+            div
+                a.btn.btn-primary(href="/signup") Register
+            br
+                
+                

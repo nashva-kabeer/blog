@@ -18,7 +18,7 @@ function checkSignIn(req,res,next){
 
 router.get('/managearticles',checkSignIn,(req,res) => {
     var email = req.session.user.email
-    Article.find({}).sort({createdAt:-1}).then((response) => {
+    Article.find({email:email}).sort({createdAt:-1}).then((response) => {
         Subject.find({}).then((response2) => {
             res.render('managearticle',{data: response, data1:response2, email:email});
         })
@@ -50,7 +50,7 @@ router.post('/update/:id', (req,res) => {
 
 router.get('/updatearticle',(req,res) => {
     var email = req.session.user.email
-    Article.find().sort({createdAt:-1}).then((response) => {
+    Article.find({email:email}).sort({createdAt:-1}).then((response) => {
         Subject.find({}).then((response2) => {
             res.render('managearticle',{data: response ,data1: response2,email: email,message: "success",});
         })
@@ -70,7 +70,7 @@ router.get('/deletearticle/:id',(req,res) => {
 
 router.get('/deletedarticle',(req,res) => {
     var email = req.session.user.email
-    Article.find().sort({createdAt:-1}).then((response) => {
+    Article.find({email:email}).sort({createdAt:-1}).then((response) => {
         Subject.find({}).then((response1) => {
             res.render('managearticle',{data: response ,data1: response1,email: email,message2: "success"});
         })
@@ -111,5 +111,119 @@ router.post('/addarticle',(req,res) => {
         })
     }
 });
+
+//readarticles 
+router.get('/readarticle',(req,res) => {
+    res.render('readarticle')
+});
+
+router.get('/technology',(req,res) => {
+    Article.find({subject:"64368e86d16ba73bdd80585e",approved:1}).then((response) => {
+        res.render('articletechnology',{data:response})
+    }).catch((err) =>{
+        console.log(err)
+    })
+});
+
+router.get('/techreadmore/:id',(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('techreadmore',{value:response})
+    }).catch((err) =>{
+        console.log(err)
+    })
+});
+
+router.get('/comment/:id',checkSignIn,(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('comment',{value:response})
+    }).catch((err) =>{
+        console.log(err)
+    })
+})
+
+router.get('/techreadless',(req,res) => {
+    res.redirect('/article/technology')
+});
+
+router.get('/travel',(req,res) => {
+    Article.find({subject:"6437eeaada1aa3e3442e18c3"}).then((response) => {
+        res.render('articletravel',{data:response})
+    })
+});
+
+router.get('/travreadmore/:id',(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('travelreadmore',{value:response})
+    })
+});
+
+router.get('/travreadless',(req,res) => {
+    res.redirect('/article/travel')
+});
+
+router.get('/entertainment',(req,res) => {
+    Article.find({subject:"6438c63200cd0db8d9adf58a"}).then((response) => {
+        res.render('articleentertainment',{data:response})
+    })
+});
+
+router.get('/entreadmore/:id',(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('entreadmore',{value:response})
+    })
+});
+
+router.get('/entreadless',(req,res) => {
+    res.redirect('/article/entertainment')
+});
+
+router.get('/food',(req,res) => {
+    Article.find({subject:"64365ac784fa78cd83a71a98"}).then((response) => {
+        res.render('articlefood',{data:response})
+    })
+});
+
+router.get('/foodreadmore/:id',(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('foodreadmore',{value:response})
+    })
+});
+
+router.get('/foodreadless',(req,res) => {
+    res.redirect('/article/food')
+});
+
+router.get('/beauty&fashion',(req,res) => {
+    Article.find({subject:"64365a22d07b44485b95e3b5"}).then((response) => {
+        res.render('articlebeauty',{data:response})
+    })
+});
+
+router.get('/fashreadmore/:id',(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('fashreadmore',{value:response})
+    })
+});
+
+router.get('/fashreadless',(req,res) => {
+    res.redirect('/article/beauty&fashion')
+});
+
+router.get('/health&fitness',(req,res) => {
+    Article.find({subject:"6437ee7c2d5e39cceb534517"}).then((response) => {
+        res.render('articlehealth',{data:response})
+    })
+});
+
+router.get('/helreadmore/:id',(req,res) => {
+    Article.findById(req.params.id).then((response) => {
+        res.render('techreadmore',{value:response})
+    })
+});
+
+router.get('/helreadless',(req,res) => {
+    res.redirect('/article/health&fitness')
+});
+
 
 module.exports = router;

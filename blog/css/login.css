@@ -1,9 +1,13 @@
+.login{
+    text-align: right;
+    color: black important;
+}
 .container{
     text-align: center;
     padding: 10%;
     background-color: white;
 }
-input[type=text], input[type=email], input[type=tel], input[type=password] {
+input[type=email], input[type=password] {
     width: 50%; 
     padding: 12px;  
     border: 1px solid #ccc;
