@@ -2,9 +2,14 @@ doctype
 html 
     head 
         title Topic Manager Home
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css')
+        script(src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js')
     body 
         h2 Welcome #{name}
         div 
-            a(href="/topicmanager/articleapproval") Manage User Articles 
+            a.btn.btn-primary(href="/topicmanager/articleapproval") Manage User Articles
+        br 
         div 
-            a(href="/topicmanager/logout") Logout   
+            a.btn.btn-primary(href="/topicmanager/logout") Logout   
+        br

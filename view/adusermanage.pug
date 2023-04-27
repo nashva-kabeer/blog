@@ -2,17 +2,20 @@ doctype
 html 
     head 
         title Admin usermanagement 
-        link(rel="stylesheet", href="admindbd.css")
+        link(rel="stylesheet", href="/adusermanage.css")
         script(src="/admindelete.js") 
-    body 
-        h3 Users Manage
+    body
+        div
+            a.btn(href="/admin/logout") Logout
+        br 
+        h2 Manage Users
         table(style='width:100%',border='2')
             tr
                 th Name 
                 th E-Mail 
                 th Phone
                 th Status
-                th reject
+                th Reject
                 th Approve 
                 th Delete User
             each user in data
@@ -21,8 +24,8 @@ html
                     td #{user.email} 
                     td #{user.phone}
                     td #{user.approved}
-                    td(onclick="rejectuser('"+user._id+"')") Reject User
-                    td(onclick="approveuser('"+user._id+"')") Approve User
+                    td(onclick="rejectuser('"+user._id+"')" class="reject") Reject User
+                    td(onclick="approveuser('"+user._id+"')" class="aprove") Approve User
                     td(onclick="userdelete('"+user._id+"')" class='del') Delete User
         if(message == "success")
              h3 edited successfully

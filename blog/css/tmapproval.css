@@ -1,0 +1,16 @@
+.aprove{
+    cursor: pointer; 
+    color: rgb(25, 163, 29);
+}
+.reject{
+    cursor: pointer; 
+    color: rgb(215, 42, 12);
+}
+.btn{
+    background-color: #1e2ee0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

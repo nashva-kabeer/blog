@@ -3,7 +3,10 @@ html
     head 
         title Article Approval
         script(src="/articleapproval.js")  
+        link(rel="stylesheet", href="/tmapproval.css")
     body
+        h4 
+            a.btn(href="/topicmanager/logout") Logout
         h3 Articles 
         .container 
             table(style='width:100%',border='2')
@@ -26,8 +29,8 @@ html
                         td #{value.description} 
                         td #{value.article} 
                         td #{value.approved}
-                        td(onclick="approvearticle('"+value._id+"')") Approve 
-                        td(onclick="rejectarticle('"+value._id+"')") Reject
+                        td(onclick="approvearticle('"+value._id+"')" class="aprove") Approve 
+                        td(onclick="rejectarticle('"+value._id+"')" class="reject") Reject
             if(message == "success")
                 h3 Rejected
             if(message1 == "success")

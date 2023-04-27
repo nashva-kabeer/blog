@@ -1,0 +1,16 @@
+.del{
+    cursor: pointer; 
+    color: rgb(69, 69, 236);
+}
+.btn{
+    background-color: #1e2ee0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+h3{
+    color: rgb(74, 7, 7);
+    font-style: italic;
+}

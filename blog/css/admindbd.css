@@ -1,4 +1,18 @@
-.del{
-    color: blue;
-    text-decoration: underline;
+.btn{
+    background-color: #1e2ee0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn1{
+    text-align: end;
+    background-color: #2b6521;
+    color: white;
+    padding: 12px 20px;
+    padding-top: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }

@@ -1,0 +1,25 @@
+.del{
+    cursor: pointer; 
+    color: rgb(69, 69, 236);
+}
+h3{
+    color: rgb(211, 48, 33);
+    font-style: italic;
+}
+.aprove{
+    cursor: pointer; 
+    color: rgb(25, 163, 29);
+}
+.reject{
+    cursor: pointer; 
+    color: rgb(215, 42, 12);
+}
+.btn{
+    text-align: right;
+    background-color: #1e2ee0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

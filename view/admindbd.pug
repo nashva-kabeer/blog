@@ -2,17 +2,21 @@ doctype
 html 
     head 
         title admin dashboard 
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css')
+        script(src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js')
+        link(rel="stylesheet", href="/admindbd.css")
     body
-        div 
-            a(href="/admin/manageuser") Manage Users
-        br
-        div 
-            a(href="/admin/managetopic") Manage Topics 
-        br
-        div 
-            a(href="/admin/topicmanager") Manage Topic Managers
-        br
-        div 
-            a(href="/admin/logout") Logout
-        br    
-         
+        .container
+            div 
+                a.btn1.text-center(href="/admin/logout") Logout
+            br 
+            div 
+                a.btn(href="/admin/manageuser") Manage Users
+            br
+            div 
+                a.btn(href="/admin/managetopic") Manage Topics 
+            br
+            div 
+                a.btn(href="/admin/topicmanager") Manage Topic Managers
+            br 

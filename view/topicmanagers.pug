@@ -3,10 +3,13 @@ html
     head 
         title Manage Topic Managers
         script(src="/managerdelete.js") 
+        link(rel="stylesheet", href="/managetopic.css")
     body 
+        h4 
+            a.btn(href="/admin/logout") Logout
         h2 Topic Managers
-        h3 
-            a(href="/admin/addtopicmanager") Add New Topic Manager 
+        h4 
+            a.btn(href="/admin/addtopicmanager") Add New Topic Manager 
         .container 
             table(style="width:75%",border='2') 
                 tr 
@@ -24,7 +27,7 @@ html
                                 td #{topic.subject} 
                         td 
                             a(href="/admin/editmanager/"+manager._id) Edit 
-                        td(onclick="deletemanager('"+manager._id+"')") Delete 
+                        td(onclick="deletemanager('"+manager._id+"')" class="del") Delete 
             if(message == "success")
                 h3 edited successfully
             if(message2 == "success")

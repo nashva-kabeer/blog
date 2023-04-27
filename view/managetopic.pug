@@ -3,9 +3,13 @@ html
     head 
         title Admin Manage Topic
         script(src="/topicdelete.js") 
-    body 
-        h3 
-            a(href="/admin/addtopic") Add Topic 
+        link(rel="stylesheet", href="/managetopic.css")
+    body
+        h4 
+            a.btn(href="/admin/logout") Logout 
+        h2 Topics
+        h4 
+            a.btn(href="/admin/addtopic") Add Topic 
         table(style="width:50%",border='1') 
             tr 
                 th Topics 
@@ -16,7 +20,7 @@ html
                     td #{value.subject}
                     td 
                         a(href="/admin/subjectedit/"+value._id) Edit Topic 
-                    td(onclick="topicdelete('"+value._id+"')") Delete 
+                    td(onclick="topicdelete('"+value._id+"')" class="del") Delete 
         if(message == "success")
              h3 edited successfully
         if(message2 == "success")
